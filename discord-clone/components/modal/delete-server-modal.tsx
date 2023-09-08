@@ -3,20 +3,16 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
 
 import useModal from "@/hooks/use-modal-store";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
-import { Check, Copy, RefreshCw } from "lucide-react";
-import { Button } from "../ui/button";
-import { useState } from "react";
-import { useOrigin } from "@/hooks/use-origin";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Button } from "../ui/button";
 
 const DeleteServer = () => {
   const [isLoading, setisLoading] = useState(false);
