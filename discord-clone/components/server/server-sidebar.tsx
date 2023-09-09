@@ -8,9 +8,8 @@ import { ServerHeader } from "./server-header";
 import { ServerSearch } from "./server-search";
 import { Separator } from "../ui/separator";
 import { ServerSection } from "./server-section";
-import { channel } from "diagnostics_channel";
-import { ServerChannel } from "./server-channel";
 import { ServerMember } from "./server-member";
+import { ServerChannel } from "./server-channel";
 
 interface ServerSidebarProps {
   serverId: string;
