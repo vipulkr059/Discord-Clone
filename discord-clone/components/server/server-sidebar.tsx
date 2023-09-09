@@ -8,9 +8,8 @@ import { ServerHeader } from "./server-header";
 import { ServerSearch } from "./server-search";
 import { Separator } from "../ui/separator";
 import { ServerSection } from "./server-section";
-import { channel } from "diagnostics_channel";
-import { ServerChannel } from "./server-channel";
 import { ServerMember } from "./server-member";
+import { ServerChannel } from "./server-channel";
 
 interface ServerSidebarProps {
   serverId: string;
@@ -139,7 +138,12 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             />
             <div className="space-y-[2px]">
               {textChannels.map((channel) => (
-                <ServerChannel channel={channel} server={server} role={role} />
+                <ServerChannel
+                  key={channel.id}
+                  channel={channel}
+                  server={server}
+                  role={role}
+                />
               ))}
             </div>
           </div>
@@ -157,7 +161,12 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             />
             <div className="space-y-[2px]">
               {audioChannels.map((channel) => (
-                <ServerChannel channel={channel} server={server} role={role} />
+                <ServerChannel
+                  key={channel.id}
+                  channel={channel}
+                  server={server}
+                  role={role}
+                />
               ))}
             </div>
           </div>
@@ -175,7 +184,12 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             />
             <div className="space-y-[2px]">
               {videoChannels.map((channel) => (
-                <ServerChannel channel={channel} server={server} role={role} />
+                <ServerChannel
+                  key={channel.id}
+                  channel={channel}
+                  server={server}
+                  role={role}
+                />
               ))}
             </div>
           </div>
