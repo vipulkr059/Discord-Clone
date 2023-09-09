@@ -31,7 +31,7 @@ export const ServerChannel = ({
   const { onOpen } = useModal();
 
   const onClick = () => {
-    router.push(`/servers/${params.serverId}/channels/${channel.id}`);
+    router.push(`/servers/${params?.serverId}/channels/${channel.id}`);
   };
 
   const onAction = (e: React.MouseEvent, action: ModalType) => {

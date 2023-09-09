@@ -1,7 +1,8 @@
-import { currentProfile } from "@/lib/current-profile";
-import { db } from "@/lib/db";
 import { redirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+
+import { currentProfile } from "@/lib/current-profile";
+import { db } from "@/lib/db";
 
 interface ServerIdPageProps {
   params: {
@@ -11,8 +12,9 @@ interface ServerIdPageProps {
 
 const ServerIdPage = async ({ params }: ServerIdPageProps) => {
   const profile = await currentProfile();
+
   if (!profile) {
-    return redirectToSignIn;
+    return redirectToSignIn();
   }
 
   const server = await db.server.findUnique({
@@ -37,12 +39,13 @@ const ServerIdPage = async ({ params }: ServerIdPageProps) => {
   });
 
   const initialChannel = server?.channels[0];
-
+  console.log(initialChannel);
   if (initialChannel?.name !== "general") {
     return null;
   }
 
-  return redirect(`/servers/${params.serverId}/channels/${initialChannel.id}`);
+  return redirect(`/servers/${params.serverId}/channels/${initialChannel?.id}`);
+  // return <div>Hello</div>;
 };
 
 export default ServerIdPage;
