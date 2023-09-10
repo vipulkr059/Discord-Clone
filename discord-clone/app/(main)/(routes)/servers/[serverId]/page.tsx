@@ -45,7 +45,6 @@ const ServerIdPage = async ({ params }: ServerIdPageProps) => {
   }
 
   return redirect(`/servers/${params.serverId}/channels/${initialChannel?.id}`);
-  // return <div>Hello</div>;
 };
 
 export default ServerIdPage;
