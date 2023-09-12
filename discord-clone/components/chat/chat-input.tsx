@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { FormField, FormItem, FormControl, Form } from "@/components/ui/form";
 import { Input } from "../ui/input";
-import queryString from "query-string";
+import qs from "query-string";
 import axios from "axios";
 
 interface ChatInputProps {
@@ -32,11 +32,10 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const url = queryString.stringifyUrl({
+      const url = qs.stringifyUrl({
         url: apiUrl,
         query,
       });
-      console.log(values);
       await axios.post(url, values);
     } catch (error) {
       console.log(error);
