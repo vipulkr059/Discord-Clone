@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { io as ClientIO } from "socket.io-client";
+
 type SocketContextType = {
   socket: any | null;
   isConnected: boolean;
@@ -28,6 +29,10 @@ export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
         addTrailingSlash: false,
       }
     );
+
+    if (socketInstance.readyState !== WebSocket.CLOSED) {
+      console.log("socket working");
+    }
 
     socketInstance.on("connect", () => {
       setIsConnected(true);
