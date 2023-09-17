@@ -8,7 +8,7 @@ interface EmojiPickerProps {
   onChange: (value: string) => void;
 }
 export const EmojiPicker = ({ onChange }: EmojiPickerProps) => {
-  const resolvedTheme = useTheme();
+  const { resolvedTheme } = useTheme();
   return (
     <Popover>
       <PopoverTrigger>
